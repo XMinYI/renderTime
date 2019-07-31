@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.clock{
+				width: 1000px;
+				height: 200px;
+				display: flex;
+				margin:auto;
+			}
+
+			
+			.num{
+				width: 250px;
+				height: 175px;
+				display: flex;
+			}
+			
+			.num span{
+				width:125px;
+				height: 175px;
+				background-image: url(img/shuzi.png);
+			}
+			
+			.maohao{
+				width: 125px;
+				height: 175px;
+				background-image: url(img/shuzi.png);
+				background-position:-1195px -384px;
+			}
+			
+			.num1{
+				background-position:-44px -24px ;
+			}
+			
+			.num2{
+				background-position:-172px -24px ;
+			}
+			
+			.num3{
+				background-position:-300px -24px ;
+			}
+			
+			.num4{
+				background-position:-428px -24px ;
+			}
+			
+			.num5{
+				background-position:-556px -24px ;
+			}
+			
+			.num6{
+				background-position:-684px -24px ;
+			}
+			
+			.num7{
+				background-position:-812px -24px ;
+			}
+			
+			.num8{
+				background-position:-940px -24px ;
+			}
+			
+			.num9{
+				background-position:-1068px -24px ;
+			}
+			
+			.num0{
+				background-position:-1196px -24px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="num hour">
+				<span class="num1"></span>
+				<span></span>
+			</div>
+			<div class="maohao"></div>
+			<div class="num min">
+				<span></span>
+				<span></span>
+			</div>
+			<div class="maohao"></div>	
+			<div class="num sec">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function renderTime(){
+				var time = new Date();
+				var hour = time.getHours();
+				var min  = time.getMinutes();
+				var sec  = time.getSeconds();
+				console.log(hour,min,sec)
+				
+				hour1 = parseInt(hour/10);
+				hour2 = hour%10;
+				
+				min1 = parseInt(min/10);
+				min2 = min%10;
+				
+				sec1 = parseInt(sec/10);
+				sec2 = sec%10;
+				
+				var hour1Span = document.querySelector(".hour span:nth-child(1)");
+				hour1Span.className = "num"+hour1;
+				var hour2Span = document.querySelector(".hour span:nth-child(2)");
+				hour2Span.className = "num"+hour2;
+				
+				var min1Span = document.querySelector(".min span:nth-child(1)");
+				min1Span.className = "num"+min1;
+				var min2Span = document.querySelector(".min span:nth-child(2)");
+				min2Span.className  = "num"+min2;
+				
+				var sec1Span = document.querySelector(".sec span:nth-child(1)");
+				sec1Span.className = "num"+sec1;
+				var sec2Span = document.querySelector(".sec span:nth-child(2)");
+				sec2Span.className = "num"+sec2;
+			}
+			
+			renderTime()
+			
+			setInterval(function() {
+				renderTime()
+			},1000)
+		</script>
+	</body>
+</html>
